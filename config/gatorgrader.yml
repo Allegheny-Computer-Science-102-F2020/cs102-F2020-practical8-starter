@@ -1,0 +1,61 @@
+---
+name: cs102-F2020-practical8
+break: true
+indent: 4
+---
+
+# Learn more about GatorGrader and its supported checks by visiting this web site:
+# https://github.com/GatorEducator/gatorgrader
+
+# Explanation:
+# --> a check without an "--exact" runs a count for an entity as an "at least"
+# --> checks below a file in a specified directory are for that specific file and directory
+# --> checks that appear stand-alone are for an entire Git repository
+
+# --> check the Python program
+populationfinder/populationfinder/__main__.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "from populationfinder import transform" --count 1 --exact
+    MatchFileFragment --fragment "transform.transform_string_to_dictionary" --count 1 --exact
+    MatchFileFragment --fragment "population_dictionary[year]" --count 1 --exact
+    CountMultipleLineComments --language Python --count 2
+    CountSingleLineComments --language Python --count 4
+
+# --> check the Python program
+populationfinder/populationfinder/transform.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "from typing import Dict" --count 1 --exact
+    CountMultipleLineComments --language Python --count 2
+    CountSingleLineComments --language Python --count 8
+
+# --> check the Python program
+populationfinder/tests/test_transform.py:
+    ConfirmFileExists
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    CountMultipleLineComments --language Python --count 3
+
+# --> check the technical writing for various characteristics
+writing/reflection.md:
+    ConfirmFileExists
+    CountFileWords --count 500
+    CountMarkdownTags --tag "heading" --count 8 --exact
+    CountMarkdownTags --tag "code" --count 1
+    CountMarkdownTags --tag "code_block" --count 3
+    MatchFileFragment --fragment "TODO" --count 0 --exact
+    MatchFileFragment --fragment "Add Your Name Here" --count 0 --exact
+
+# --> check that the number of commits in the Git repository is beyond a threshold
+CountCommits --count 5
+
+# --> check that the program executes correctly and produces exactly 6 lines of output
+ExecuteCommand --command "cd populationfinder; poetry install;poetry run python populationfinder --data-file inputs/data.txt --year 1996-01-01; cd .."
+
+# Output of the Python Program:
+
+# $ poetry run python populationfinder --data-file inputs/data.txt --year 1996-01-01
+
+# The data file contains 50 data values in it!
+# Now we can search for the population at year 1996-01-01
+# The population at year 1996-01-01 is 89.618 thousands of persons

@@ -196,15 +196,15 @@ tools are working correctly on your laptop, then you should always use the
 provided Docker container.
 
 Now, making sure that you are in your "home base" directory for this practical
-assignment, you need to install the dependencies for the `containschecker`
+assignment, you need to install the dependencies for the `populationfinder`
 program that you will implement, debug, and observe. To complete this step you
-need to type `cd containschecker` and then `poetry install`. What output did
+need to type `cd populationfinder` and then `poetry install`. What output did
 this command produce? What do you think that this step did? Why is important to
 type these commands? Make sure that you know the answers to these question
 before moving onto the next step of the assignment. Finally, please remember
 that when you want to run `gradle grade` you must be in the "home base"
 directory for this practical assignment. However, when you want to run the
-Python program you need to be in the directory called `containschecker`.
+Python program you need to be in the directory called `populationfinder`.
 
 ### Implementing a Python Program that Performs Lookups for Population Values
 
